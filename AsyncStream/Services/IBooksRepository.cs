@@ -12,5 +12,6 @@ public interface IBooksRepository
     void AddBook(Entities.Book bookToAdd);
     Task<bool> SaveChangesAsync();
     Task<IEnumerable<Book>> GetBooksAsync(IEnumerable<Guid> booksIds);
+    IAsyncEnumerable<Book> GetBooksAsAsyncEnumerable();
 }
 

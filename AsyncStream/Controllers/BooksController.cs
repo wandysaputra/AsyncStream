@@ -57,4 +57,17 @@ public class BooksController : ControllerBase
         return saveChanges ? CreatedAtRoute("GetBook", new {id = bookEntity.Id}, bookEntity) : Problem();
     }
 
+    // curl http://localhost:5191/api/booksstream
+    [HttpGet("booksstream")]
+    public async IAsyncEnumerable<BookDto> StreamBooks()
+    {
+        await foreach (var bookFromRepository in
+                       _booksRepository.GetBooksAsAsyncEnumerable())
+        {
+            // add a delay to visually see the effect
+            await Task.Delay(5000);
+            yield return _mapper.Map<BookDto>(bookFromRepository); ;
+        }
+    }
+
 }
