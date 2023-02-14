@@ -16,6 +16,9 @@ builder.Services.AddDbContext<BooksContext>(options =>
 
 builder.Services.AddScoped<IBooksRepository, BooksRepository>();
 
+// register AutoMapper service and scan application assemblies that derive from Profile
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
