@@ -1,7 +1,7 @@
-﻿using Books.API.Entities;
+﻿using AsyncStream.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Books.API.DbContexts;
+namespace AsyncStream.DbContexts;
 
 public class BooksContext : DbContext
 {

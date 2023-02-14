@@ -1,7 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Books.API.Entities;
+namespace AsyncStream.Entities;
 
 [Table("Books")]
 public class Book
@@ -25,5 +25,10 @@ public class Book
         AuthorId = authorId;
         Title = title;
         Description = description;
+    }
+
+    // for BookForCreationDto mapper, by right with the [Key] attribute, ef core will put new value on every insert.
+    public Book(Guid authorId, string title, string? description): this(Guid.NewGuid(), authorId, title, description)
+    {
     }
 }
