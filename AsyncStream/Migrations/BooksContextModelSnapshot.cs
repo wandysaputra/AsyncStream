@@ -17,7 +17,7 @@ namespace AsyncStream.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
-            modelBuilder.Entity("Books.API.Entities.Author", b =>
+            modelBuilder.Entity("AsyncStream.Entities.Author", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace AsyncStream.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Books.API.Entities.Book", b =>
+            modelBuilder.Entity("AsyncStream.Entities.Book", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -126,9 +126,9 @@ namespace AsyncStream.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Books.API.Entities.Book", b =>
+            modelBuilder.Entity("AsyncStream.Entities.Book", b =>
                 {
-                    b.HasOne("Books.API.Entities.Author", "Author")
+                    b.HasOne("AsyncStream.Entities.Author", "Author")
                         .WithMany()
                         .HasForeignKey("AuthorId")
                         .OnDelete(DeleteBehavior.Cascade)
