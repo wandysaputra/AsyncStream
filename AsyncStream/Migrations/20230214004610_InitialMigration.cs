@@ -13,19 +13,6 @@ namespace AsyncStream.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-
-            migrationBuilder.CreateTable(
-                name: "__EFMigrationsHistory",
-                columns: table => new
-                {
-                    MigrationId = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false),
-                    ProductVersion = table.Column<string>(type: "TEXT", maxLength: 150, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK___EFMigrationsHistory", x => x.MigrationId);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Authors",
                 columns: table => new
