@@ -17,13 +17,21 @@ namespace AsyncStream.Controllers
         [HttpGet("books")]
         public async Task<IActionResult> GetBooks()
         {
-            return Ok(await _booksRepository.GetBooksAsync());
+            var books = await _booksRepository.GetBooksAsync();
+
+            return Ok(books);
         }
 
         [HttpGet("books/{id:guid}")]
         public async Task<IActionResult> GetBooks(Guid id)
         {
-            return Ok(await _booksRepository.GetBookAsync(id));
+            var bookEntity = await _booksRepository.GetBookAsync(id);
+            if (bookEntity == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(bookEntity);
         }
     }
 }
