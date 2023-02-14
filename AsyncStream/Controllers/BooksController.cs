@@ -65,7 +65,7 @@ public class BooksController : ControllerBase
                        _booksRepository.GetBooksAsAsyncEnumerable())
         {
             // add a delay to visually see the effect
-            await Task.Delay(5000);
+            await Task.Delay(750);
             yield return _mapper.Map<BookDto>(bookFromRepository); ;
         }
     }
